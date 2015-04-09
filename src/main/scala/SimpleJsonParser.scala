@@ -112,26 +112,30 @@ class SimpleJsonParser {
 	}
 	
 	def parseSpecial(str : String) : Any = {
-	  val strBuilder: StringBuilder = new StringBuilder();
-	  while(charPos < str.length() && 
-	      str(charPos) != ',' &&
-	      str(charPos) != ']' &&
-	      str(charPos) != '}') {
-	    strBuilder.append(str(charPos));
-	    charPos = charPos + 1;
-	  }
-	  val dStr = strBuilder.toString;
-	  return dStr match {
-	    case "true" => true
-	    case "false" => false
-	    case default => {
-	    	val dVal = dStr.toDouble
-			if(dVal == dVal.longValue) {
-			  return dVal.longValue
-			} else {
-			  return dVal
-			}
-	    }
+	  try {
+		  val strBuilder: StringBuilder = new StringBuilder();
+		  while(charPos < str.length() && 
+		      str(charPos) != ',' &&
+		      str(charPos) != ']' &&
+		      str(charPos) != '}') {
+		    strBuilder.append(str(charPos));
+		    charPos = charPos + 1;
+		  }
+		  val dStr = strBuilder.toString;
+		  return dStr match {
+		    case "true" => true
+		    case "false" => false
+		    case default => {
+		    	val dVal = dStr.toDouble
+				if(dVal == dVal.longValue) {
+				  return dVal.longValue
+				} else {
+				  return dVal
+				}
+		    }
+		  }
+	  } catch { 
+	    case e: NumberFormatException => throw new Exception("Error parsing ["+str+"]",e);
 	  }
 	  
 	}
