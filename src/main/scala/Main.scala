@@ -1,3 +1,5 @@
+package com.simplejsonparser
+
 object Main {
 
   def main(args: Array[String]) {

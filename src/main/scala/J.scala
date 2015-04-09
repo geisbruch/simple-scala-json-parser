@@ -1,3 +1,5 @@
+package com.simplejsonparser
+
 class J(val v : Any, val map : Map[String, Any], val arr : Array[Any]) 
 	extends java.io.Serializable with java.lang.Cloneable{
 

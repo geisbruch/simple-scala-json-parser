@@ -1,3 +1,5 @@
+package com.simplejsonparser
+
 class JsonArrayElement extends JsonElement{
   var parent : JsonElement = null;
   

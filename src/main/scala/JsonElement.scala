@@ -1,3 +1,5 @@
+package com.simplejsonparser
+
 trait JsonElement {
 
   def getParent() : JsonElement;

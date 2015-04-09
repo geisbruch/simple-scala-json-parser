@@ -1,3 +1,5 @@
+package com.simplejsonparser
+
 class JsonObjectElement extends JsonElement {
 
   var map : Map[String, Any] = Map();
