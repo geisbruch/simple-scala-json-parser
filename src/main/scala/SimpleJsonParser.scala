@@ -55,7 +55,8 @@ class SimpleJsonParser {
 		      }
 		      charPos = charPos+1;
 		    }
-		    case '}' if state == "parse_value" => {
+		    case '}' if state == "parse_value" || state == "parse_key" => {
+		      state = "parse_value"
 		      currentElement.finishElement();
 		      var e: JsonElement = currentElement.getParent();
 		      if(e!= null) {
