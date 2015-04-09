@@ -124,6 +124,7 @@ class SimpleJsonParser {
 		  return dStr match {
 		    case "true" => true
 		    case "false" => false
+		    case "null" => null
 		    case default => {
 		    	val dVal = dStr.toDouble
 				if(dVal == dVal.longValue) {
