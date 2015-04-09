@@ -145,25 +145,17 @@ class SimpleJsonParser {
 	  charPos = charPos+1;
 	  while(charPos < str.length()) {
 	    str(charPos) match {
-	      case '\\' => {
-	        //Ther is an scala error, when str(charPos) reades an string \\ read only one slash
-	        if(str.length() > charPos+2 && str.substring(charPos, charPos+2) == """\\""") {
-	          special = false;
-	          strBuilder.append("""\\""");
-	        } else {
-	          special = true;  
-	          strBuilder.append("""\""");
-	        }
-	        
-	        charPos = charPos+1;
-	      }
 	      case '"' if !special => {
 	    	  charPos = charPos+1;
 	    	  return strBuilder.toString();
 	      }
 	      case c => {
 	    	  strBuilder.append(c);
-	    	  special = false;
+	    	  if(c == '\\' && !special) {
+	    	    special = true
+	    	  } else {
+	    		  special = false;
+	    	  }
 	      }
 	    }
 	    charPos = charPos+1;

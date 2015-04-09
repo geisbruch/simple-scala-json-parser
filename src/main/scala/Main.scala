@@ -4,22 +4,11 @@ import com.simplejsonparser.SimpleJsonParser
 object Main {
 
   def main(args: Array[String]) {
-	  println("""{"q":"a \\","pa":"pe"}""")
+	  
     val m = new SimpleJsonParser()
-    			.parseJsonObject("""{"q":"a \\","pa":"pe"}""");
+    			.parseJsonObject("""{"application":{"site_id":"MLA","server_poolname":"search-frontend-webserver-mla-master-vir","server_hostname":"e-00007c48.melicloud.com","business":"mercadolibre","version":"0.6.756.Bookmarks.5"},"user_time":1428456655955,"user_time_zone":"-0300","event_data":{"headers":{"accept-language":"es-ES,es;q=0.8","host":"listado.mercadolibre.com.ar","x-forwarded-for":"190.55.212.27, 172.16.112.123, 172.16.125.26","accept":"text\/html,application\/xhtml xml,application\/xml;q=0.9,image\/webp,*\/*;q=0.8","x-device-forced-desktop":"false","x-platform":"ml","user-agent":"Mozilla\/5.0 (Windows NT 6.1; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/41.0.2272.101 Safari\/537.36","x-request-id":"eeed154e-a9c1-4f28-9b80-156036522336","x-nginx-pool":"search-frontend-webserver-mla-master","x-consistent":"false","x-device-js":"true","x-d2id":"4b772ecf-8764-4168-8d6b-e82db3da38da","x-device-type":"desktop","x-datacenter":"vir","x-request-uri":"\/sillones-muebles-en-bsas-gba-sur\/_DisplayType_G","referer":"http:\/\/listado.mercadolibre.com.ar\/sillones-muebles-en-bsas-gba-sur\/","accept-encoding":"gzip, deflate, sdch","x-nginx-host":"e-00001c0d"},"limit":48,"total":1651,"category_path":["MLA1574","MLA1623","MLA1626","MLA30981"],"category_id":"MLA30981","visual_id":"STD","cookies":{"pmslc":"5821485","__utmz":"1.1428456319.1.1.utmcsr","ootdchSCJS":"10742","pmsctx":"V1623%7C*****SSILLONES%7C*IMLA546961337%7C%7C%7C%7CIMLA551159320%7C**","_ml_ci":"900306218.1428456319","pmsttl":"1428456536","ml_list":"","_ml_dc":"1","_ml_ga":"GA1.3.900306218.1428456319","_d2id":"4b772ecf-8764-4168-8d6b-e82db3da38da","ootdcuSCJS":"34583","LAST_SEARCH":"sillones","ctxjs1420m06d05":"7b2273756363657373223a302c226c6f675f616374697665223a307d","dejavu":"%7B%22session%22%3A%22%22%2C%22abt%22%3A%220.4622882929060026%22%7D","pmsword":"ITEM","__utma":"1.900306218.1428456319.1428456319.1428456319.1","__utmc":"1","__utmb":"1.13.10.1428456319","__utmt_mlTracker":"1","pmsonline":"\/sillones-muebles-en-bsas-gba-sur\/","orgpms":"5821485","countrySCJS":"AR"},"http_url":"http:\/\/listado.mercadolibre.com.ar\/grails\/searchResults\/searchAndRender.dispatch","offset":0,"config_version":"113","sort_id":"RELEVANCE","http_referer":"http:\/\/listado.mercadolibre.com.ar\/sillones-muebles-en-bsas-gba-sur\/"},"server_time":1428456655955,"catalog_data":{"is_valid":true,"version":43},"type":"View","device_time":1428456655955,"id":"9b5f5f08-96ab-4ffc-b5c6-13ad2a7a5c45","user_timestamp":"2015-04-08T01:30:55.955+0000","path":"\/search","device":{"platform":"\/web\/desktop","user_agent":"Mozilla\/5.0 (Windows NT 6.1; WOW64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/41.0.2272.101 Safari\/537.36","resolution_height":728,"resolution_width":1366},"created_hidden":false,"server_timestamp":"2015-04-08T01:30:55.955+0000","user":{"uid":"4b772ecf-8764-4168-8d6b-e82db3da38da"},"device_timestamp":"2015-04-08T01:30:55.955+0000"}""");
 	val j = new J(m)
-	
-	println(j("pa"))
-	
-	val j2 = new SimpleJsonParser()
-	.parseJson("""["gola",{"pa":"pe","ce":{"na":{"n i":{"no":"n  u"}}}}]""");
-	println(j2(1)("ce")("na")("n i")("no")
-	)
-	val a = System.currentTimeMillis();
-	val j3 = new SimpleJsonParser().parseJson("""{"user_local_timestamp":"2015-03-14T15:17:03.566-0300","application":{"site_id":"MLA","app_id":"7092","business":"mercadolibre","version":"4.3.3"},"user_time":1426357023566,"secure":false,"server_time":1427463733961,"event_data":{"item_id":"MLA549658349","failed":false,"context":"\/vip","question_id":"3483272095","mode":"normal"},"catalog_data":{"is_valid":false,"version":40},"type":"event","device_time":1427463805128,"id":"74021548-612d-4802-b460-9ae7b641ee26","user_timestamp":"2015-03-14T18:17:03.566+0000","priority":"NORMAL","path":"\/questions\/ask\/post","device":{"connectivity_type":"EDGE","orientation":0.0,"platform":"\/mobile\/android","device_name":"GT-S5301L","device_id":"6c28d87ca8fccdbe","resolution_height":320.0,"resolution_width":240.0,"os_version":"4.0.4"},"server_timestamp":"2015-03-27T13:42:13.961+0000","retry":0,"user":{"uid":"f3f62930-6e4c-4335-82b3-5a9542bd3d1a-n","user_id":"32599461"},"device_timestamp":"2015-03-27T13:43:25.128+0000"}""")
-	println(System.currentTimeMillis() - a)
-	println(j3("application")("site_id"))
-	println(j3("user_local_timestamp"))
+	println(j("application"))
   }
   
   
