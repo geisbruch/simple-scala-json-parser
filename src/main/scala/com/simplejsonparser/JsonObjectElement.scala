@@ -2,7 +2,7 @@ package com.simplejsonparser
 
 class JsonObjectElement extends JsonElement {
 
-  var map : Map[String, Any] = Map();
+  var map : scala.collection.mutable.Map[String, Any] = scala.collection.mutable.Map();
   
   var lastKey: String = null;
   
@@ -19,17 +19,17 @@ class JsonObjectElement extends JsonElement {
   def addElement(element: Any, status: String) = {
     status match {
       case "parse_key" => lastKey = element.toString()
-      case "parse_value" => map = map + (lastKey -> element)
+      case "parse_value" => map.put(lastKey, element)
     }
   };
   
-  def getMap : Map[String, Any] = {
+  def getMap : scala.collection.mutable.Map[String, Any] = {
     return map;
   }
   
   def finishElement() = {
 	  if(parent != null) {
-	    parent.addElement(map, "parse_value");
+	    parent.addElement(map.toMap, "parse_value");
 	  }
   }
   

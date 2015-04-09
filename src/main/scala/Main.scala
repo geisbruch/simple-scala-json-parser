@@ -6,9 +6,9 @@ object Main {
   def main(args: Array[String]) {
 	  
     val m = new SimpleJsonParser()
-    			.parseJsonObject("""{"a":123453323,"b":"ds"}""");
+    			.parseJsonObject("""{"a":123453323,"b":"ds", "b":["pepito"],"n":{"k":{"z":"q"}}}""");
 	val j = new J(m)
-	println(j("application"))
+	println(j("n")("k")("z"))
   }
   
   

@@ -92,7 +92,7 @@ class SimpleJsonParser {
 		    case default => throw new ParseException("["+str+" is not a json object]",0)
 		}
 		parseAll(str);
-	  return (currentElement.asInstanceOf[JsonObjectElement]).getMap;
+	  return (currentElement.asInstanceOf[JsonObjectElement]).getMap.toMap;
 	}
 	
 	def parseJsonArray(str: String): Array[Any] = {
