@@ -12,7 +12,12 @@ class SimpleJsonParser {
 	var currentElement: JsonElement = null;
 	
 	def parseAll(str:String) = {
+	   var iterations = 0;
 	   while(charPos < str.length()) {
+	      iterations = iterations+1;
+	      if(iterations > str.length()*2){
+	        throw new Exception("Error parsing ["+str+"]");
+	      }
 		  str(charPos) match {
 		    case '{' if state == "begin" => {
 		    	currentElement = new JsonObjectElement()
@@ -71,6 +76,7 @@ class SimpleJsonParser {
 		    case c if state == "parse_value" => {
 		      var n: Any = parseSpecial(str);
 		      currentElement.addElement(n, state);
+		      state = currentElement.stateAfterValue();
 		    }
 		    case a => throw new ParseException("Char ["+a+"] invalid at pos ["+charPos+"] on json ["+str+"]",charPos);
 		  }
