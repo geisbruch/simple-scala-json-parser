@@ -72,7 +72,7 @@ class SimpleJsonParser {
 		      var n: Any = parseSpecial(str);
 		      currentElement.addElement(n, state);
 		    }
-		    case a => throw new ParseException("Char ["+a+"] invalid at pos ["+charPos+"]",charPos);
+		    case a => throw new ParseException("Char ["+a+"] invalid at pos ["+charPos+"] on json ["+str+"]",charPos);
 		  }
 	  }
 	}
